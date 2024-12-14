@@ -147,7 +147,7 @@ const AddJob = () => {
           </div>
           <div className='flex justify-end mt-6'>
             <button className='disabled:cursor-not-allowed px-8 py-2.5 leading-5 text-white transition-colors duration-300 transhtmlForm bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>
-              Save
+              Post
             </button>
           </div>
         </form>
