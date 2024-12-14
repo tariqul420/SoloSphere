@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../providers/AuthProvider';
 import toast from 'react-hot-toast';
+import { format } from 'date-fns';
 
 const MyPostedJobs = () => {
   const [myPostedJobs, setMyPostedJobs] = useState([])
@@ -116,7 +117,7 @@ const MyPostedJobs = () => {
                       </td>
 
                       <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
-                        {job?.date_line}
+                        {format(new Date(job?.date_line), 'MM/dd/yyyy')}
                       </td>
 
                       <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
@@ -157,7 +158,7 @@ const MyPostedJobs = () => {
                           </button>
 
                           <Link
-                            to={`/update/1`}
+                            to={`/update/${job?._id}`}
                             className='text-gray-500 transition-colors duration-200   hover:text-yellow-500 focus:outline-none'
                           >
                             <svg

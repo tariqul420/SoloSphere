@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { Link } from 'react-router-dom'
+import { format } from 'date-fns';
 
 const JobCard = ({ job }) => {
   const { job_title, date_line, category, min_price, max_price, description, bid_count } = job
@@ -11,7 +12,7 @@ const JobCard = ({ job }) => {
     >
       <div className='flex items-center justify-between'>
         <span className='text-xs font-light text-gray-800 '>
-          Deadline: {date_line}
+          Deadline: {format(new Date(date_line), 'MM/dd/yyyy')}
         </span>
         <span className={`px-3 py-1 text-[8px]  uppercase  rounded-full ${job.category === 'Web Development' && 'text-blue-500 bg-blue-100/60'} ${job.category === 'Graphics Design' && 'text-green-500 bg-green-100/60'} ${job.category === 'Digital Marketing' && 'text-red-500 bg-red-100/60'}`}>
           {category}
