@@ -41,7 +41,8 @@ const AddJob = () => {
     try {
       axios.post(`${import.meta.env.VITE_API_URL}/post-job`, newJobData)
         .then(data => {
-          if (data?.data?.insertedId > 0) {
+          console.log(data.data);
+          if (data?.data?.insertedId) {
             toast.success('Job add successfully')
             navigate('/my-posted-jobs')
             form.reset()
