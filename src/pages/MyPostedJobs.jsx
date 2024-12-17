@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../providers/AuthProvider';
 import toast from 'react-hot-toast';
 import { format } from 'date-fns';
+import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 const MyPostedJobs = () => {
   const [myPostedJobs, setMyPostedJobs] = useState([])
   const { user } = useContext(AuthContext)
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    axios.get(`http://localhost:9000/my-posted-jobs/${user?.email}`)
+    axiosSecure.get(`/my-posted-jobs?email=${user?.email}`)
       .then(data => setMyPostedJobs(data?.data))
   }, [user?.email]);
 
