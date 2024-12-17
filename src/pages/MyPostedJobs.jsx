@@ -17,17 +17,14 @@ const MyPostedJobs = () => {
   }, [user?.email]);
 
   const handelDelete = (id) => {
-    console.log(id);
     try {
       axios.delete(`${import.meta.env.VITE_API_URL}/my-posted-job/${id}`)
-        .then(data => {
-          console.log(data);
+        .then(() => {
           const remaining = myPostedJobs.filter(job => job._id !== id)
           setMyPostedJobs(remaining)
           toast.success('Successfully delete')
         })
     } catch (err) {
-      console.log(err);
       toast.error(err.message)
     }
   };

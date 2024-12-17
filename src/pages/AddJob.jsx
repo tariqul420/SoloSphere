@@ -10,7 +10,6 @@ const AddJob = () => {
   const [startDate, setStartDate] = useState(new Date())
   const { user } = useContext(AuthContext)
   const navigate = useNavigate();
-  console.log(startDate);
 
   const handelAddJob = async (e) => {
     e.preventDefault()
@@ -41,7 +40,6 @@ const AddJob = () => {
     try {
       axios.post(`${import.meta.env.VITE_API_URL}/post-job`, newJobData)
         .then(data => {
-          console.log(data.data);
           if (data?.data?.insertedId) {
             toast.success('Job add successfully')
             navigate('/my-posted-jobs')

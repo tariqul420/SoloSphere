@@ -50,7 +50,6 @@ const UpdateJob = () => {
           }
         })
     } catch (err) {
-      console.error(err.message);
       toast.error(err.code)
     }
   }

@@ -9,7 +9,6 @@ const JobDetails = () => {
   const [startDate, setStartDate] = useState(new Date())
   // const [jobs, setJobs] = useState({})
   const job = useLoaderData()
-  console.log(job);
 
 
   // useEffect(() => {
